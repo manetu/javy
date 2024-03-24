@@ -72,6 +72,13 @@ int JS_BigIntToUint64(JSContext *ctx, uint64_t *pres, JSValueConst val) {
   return JS_BigIntToUint64Free(ctx, pres, JS_DupValue(ctx, val));
 }
 
+void JS_AddRef(JSContext *ctx, JSValueConst v) {
+    JS_DupValue(ctx, v);
+}
+
+void JS_DropRef(JSContext *ctx, JSValueConst v) {
+    JS_FreeValue(ctx, v);
+}
 
 const JSValue ext_js_null = JS_NULL;
 const JSValue ext_js_undefined = JS_UNDEFINED;
