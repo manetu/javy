@@ -40,7 +40,7 @@ pub struct JSValueRef<'a> {
 }
 
 impl<'a> JSValueRef<'a> {
-    pub(super) fn new(context: &'a JSContextRef, raw_value: JSValueRaw) -> Result<Self> {
+    pub fn new(context: &'a JSContextRef, raw_value: JSValueRaw) -> Result<Self> {
         let value = Self {
             context,
             value: raw_value,
